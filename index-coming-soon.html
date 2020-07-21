@@ -63,6 +63,23 @@
             latitude:40.7566,
             longitude: -73.9863,
             zoom: 14 });
+
+        // set the date we're counting down to
+        var target_date = new Date('Jan, 31, 2015').getTime();
+        var days, hours, minutes, seconds;
+        var countdown = document.getElementById('countdown');
+        setInterval(function () {
+            var current_date = new Date().getTime();
+            var seconds_left = (target_date - current_date) / 1000;
+            days = parseInt(seconds_left / 86400);
+            seconds_left = seconds_left % 86400;             
+            hours = parseInt(seconds_left / 3600);
+            seconds_left = seconds_left % 3600;             
+            minutes = parseInt(seconds_left / 60);
+            seconds = parseInt(seconds_left % 60);
+            countdown.innerHTML = '<span class="days">' + days +  ' <small>Days</small></span> <span class="hours">' + hours + ' <small>Hours</small></span> <span class="minutes">'
+            + minutes + ' <small>Minutes</small></span> <span class="seconds">' + seconds + ' <small>Seconds</small></span>';          
+        }, 1000);
     });
     </script>
 
@@ -93,50 +110,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Home <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="index.html">Home Full</a></li>
-                            <li><a href="index-video.html">Home Video</a></li>
-                            <li><a href="index-onepager.html">Home One Pager</a></li>
-                            <li><a href="index-coming-soon.html">Home Coming Soon</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Posts <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="single-post.html">Single Post</a></li>
-                            <li><a href="single-post-fullwidth.html">Single Post Fullwidth</a></li>
-                            <li><a href="single-post-video.html">Single Post Video</a></li>
-                            <li><a href="single-post-gallery.html">Single Post Gallery</a></li>
-                            <li><a href="single-post-gallery-fullwidth.html">Single Post Gallery Fullwidth</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Category <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="category-archive.html">Category Archive</a></li>
-                            <li><a href="category-archive-2-col.html">Category Archive 2 Columns</a></li>
-                            <li><a href="category-archive-3-col-fullwidth.html">Category Fullwidth</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Portfolio <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="single-portfolio.html">Single Portfolio</a></li>
-                            <li><a href="single-portfolio-gallery.html">Single Portfolio Gallery</a></li>
-                            <li><a href="single-portfolio-video.html">Single Portfolio Video</a></li>
-                            <li><a href="filterable-portfolio-3-col.html">Filterable Portfolio 3 Columns</a></li>
-                            <li><a href="filterable-portfolio-4-col.html">Filterable Portfolio 4 Columns</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Pages <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="404.html">404</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#search"><i class="pe-7s-search"></i></a></li>
+                    <li><a class="page-scroll" href="#headerwrap">Home</a></li>
+                    <li><a class="page-scroll" href="#about-us">About Us</a></li>
+                    <li><a class="page-scroll" href="#our-work">Our Work</a></li>
+                    <li><a class="page-scroll" href="#blog">Blog</a></li>
+                    <li><a class="page-scroll" href="#contact-us">Contact</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -144,21 +122,12 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <div id="search-wrapper">
-        <button type="button" class="close">×</button>
-        <form>
-            <input type="search" value="" placeholder="type keyword(s) here" />
-            <button type="submit" class="btn btn-primary">Search</button>
-        </form>
-    </div>
-
     <!-- Header -->
     <header id="headerwrap" class="fullheight">
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in wow bounceInDown" data-wow-delay="0.5s">We Can Help You <span class="wodry">Create|Design|Profit</span></div>
-                <div class="intro-heading wow bounceInUp" data-wow-delay="1s">SMASHCO <span class="thin">N.Y.C.</span></div>
-                <a href="#about-us" class="page-scroll btn btn-xl btn-negative  wow bounceInDown" data-wow-delay="2s">Tell Me More <i class="fa fa-angle-down fa-2x"></i></a>
+                <div class="intro-lead-in wow bounceInDown" data-wow-delay="0.5s">We're Not Quite Ready</div>
+                <div class="intro-heading wow bounceInUp" data-wow-delay="1s"><div id="countdown"></div></div>
             </div>
         </div>
     </header>
@@ -355,6 +324,82 @@
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="timeline">
+        <div class="section-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center wow fadeInDown">
+                        <h2 class="section-heading"><strong>Company</strong> History</h2>
+                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="timeline">
+                            <li class="wow fadeInLeft">
+                                <div class="timeline-image">
+                                    <img class="img-responsive" src="assets/img/blog/blog1.jpg" alt="">
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4>10 Years Ago</h4>
+                                        <h4 class="subheading">Our Humble Beginnings</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="timeline-inverted wow fadeInRight">
+                                <div class="timeline-image">
+                                    <img class="img-responsive" src="assets/img/blog/blog2.jpg" alt="">
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4>6 Years Ago</h4>
+                                        <h4 class="subheading">We Go Global</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="wow fadeInLeft">
+                                <div class="timeline-image">
+                                    <img class="img-responsive" src="assets/img/blog/blog3.jpg" alt="">
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4>2 Years Ago</h4>
+                                        <h4 class="subheading">Trade On Stock Market</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="timeline-inverted wow fadeInRight">
+                                <div class="timeline-image">
+                                    <img class="img-responsive" src="assets/img/blog/blog4.jpg" alt="">
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4>August 2014</h4>
+                                        <h4 class="subheading">Expand Business</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="stats" class="divider-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg4.jpg" data-speed="0.7">
         <div class="section-inner">
             <div class="container">
@@ -390,9 +435,9 @@
                 </div>
             </div>
         </div>
-    </section>    
+    </section>   
 
-    <section id="filterable-portfolio">
+    <section id="our-work">
         <div class="section-inner">
             <div class="container">
                 <div class="row">
@@ -420,6 +465,10 @@
                                     </div>
                                 </div>                                
                             </a>
+                            <div class="item-caption">
+                                <h4>Alarm App</h4>
+                                <p class="text-muted">iOS App</p>
+                            </div>
                         </li>
                         <li class="col-md-4 portfolio-item da-item design isotope-item">
                             <a class="lb-link" href="assets/img/portfolio/portfolio2.jpg" title="View Image">
@@ -430,6 +479,10 @@
                                     </div>
                                 </div>                                
                             </a>
+                            <div class="item-caption">
+                                <h4>LargeCorp</h4>
+                                <p class="text-muted">Web Design</p>
+                            </div>
                         </li>
                         <li class="col-md-4 portfolio-item da-item photography isotope-item">
                             <a class="lb-link" href="assets/img/portfolio/portfolio3.jpg" title="View Image">
@@ -440,6 +493,10 @@
                                     </div>
                                 </div>                                
                             </a>
+                            <div class="item-caption">
+                                <h4>Nicky Modelle</h4>
+                                <p class="text-muted">Photography</p>
+                            </div>
                         </li>
                         <li class="col-md-4 portfolio-item da-item video isotope-item">
                             <a class="lb-link" href="assets/img/portfolio/portfolio5.jpg" title="View Image">
@@ -450,6 +507,10 @@
                                     </div>
                                 </div>                                
                             </a>
+                            <div class="item-caption">
+                                <h4>HD Session</h4>
+                                <p class="text-muted">Video Editing</p>
+                            </div>
                         </li>
                         <li class="col-md-4 portfolio-item da-item design isotope-item">
                             <a class="lb-link" href="assets/img/portfolio/portfolio7.jpg" title="View Image">
@@ -460,6 +521,10 @@
                                     </div>
                                 </div>                                
                             </a>
+                            <div class="item-caption">
+                                <h4>BigSite.com</h4>
+                                <p class="text-muted">Website Design</p>
+                            </div>
                         </li>
                         <li class="col-md-4 portfolio-item da-item photography isotope-item">
                             <a class="lb-link" href="assets/img/portfolio/portfolio8.jpg" title="View Image">
@@ -470,6 +535,10 @@
                                     </div>
                                 </div>                                
                             </a>
+                            <div class="item-caption">
+                                <h4>Costa Rica</h4>
+                                <p class="text-muted">Photography</p>
+                            </div>
                         </li>
                         <li class="col-md-4 portfolio-item da-item video isotope-item">
                             <a class="lb-link" href="assets/img/portfolio/portfolio9.jpg" title="View Image">
@@ -480,6 +549,10 @@
                                     </div>
                                 </div>                                
                             </a>
+                            <div class="item-caption">
+                                <h4>Bank Promo</h4>
+                                <p class="text-muted">Video</p>
+                            </div>
                         </li>
                         <li class="col-md-4 portfolio-item da-item design isotope-item">
                             <a class="lb-link" href="assets/img/portfolio/portfolio10.jpg" title="View Image">
@@ -490,6 +563,10 @@
                                     </div>
                                 </div>                                
                             </a>
+                            <div class="item-caption">
+                                <h4>Gig Banner</h4>
+                                <p class="text-muted">Design</p>
+                            </div>
                         </li>
                         <li class="col-md-4 portfolio-item da-item video isotope-item">
                             <a class="lb-link" href="assets/img/portfolio/portfolio11.jpg" title="View Image">
@@ -500,6 +577,10 @@
                                     </div>
                                 </div>                                
                             </a>
+                            <div class="item-caption">
+                                <h4>Youtube Star</h4>
+                                <p class="text-muted">Video</p>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -507,39 +588,9 @@
         </div>
     </section>
 
-    <section id="statistics" class="divider-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg5.jpg" data-speed="0.7">
-        <div class="section-inner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="row">
-                             <div class="col-md-4">
-                                <div class="stat-circle" data-dimension="175" data-text="7.5" data-info="" data-width="30" data-fontsize="38" data-percent="75" data-fgcolor="#fff" data-bgcolor="transparent" data-fill="transparent" data-total="100" data-part="75" data-icon="long-arrow-up" data-icon-size="28" data-icon-color="#fff" data-animation-step="1"></div>
-                            </div>
-                            <div class="col-md-8">
-                                <h3><strong>HTML5</strong> Skill</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <h3><strong>Web</strong> Design</h3>
-                                <p>Sunt ut voluptatum eius sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="stat-circle" data-dimension="175" data-text="9.0" data-info="" data-width="30" data-fontsize="38" data-percent="90" data-fgcolor="#fff" data-bgcolor="transparent" data-fill="transparent" data-total="100" data-part="90" data-icon="long-arrow-up" data-icon-size="28" data-icon-color="#fff" data-animation-step="1"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>    
-
-    <section>
-        <div class="section-inner">
+    <!-- About Section -->
+    <section id="blog">
+         <div class="section-inner">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center wow fadeInDown">
@@ -566,7 +617,6 @@
                                     <li><p class="text-muted"><i class="pe-7s-user"></i> <a href="#" title="">Richard Blake</a></p></li>
                                 </ul> 
                                 <p class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente</p>
-                                <a class="btn btn-primary mt20 pull-right" href="single-post.html">Read More</a>
                             </div>
                         </li>
                         <li class="col-md-4 portfolio-item da-item wow fadeInUp" data-mh="blog-posts">
@@ -586,7 +636,6 @@
                                     <li><p class="text-muted"><i class="pe-7s-user"></i> <a href="#" title="">Richard Blake</a></p></li>
                                 </ul> 
                                 <p class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente</p>
-                                <a class="btn btn-primary mt20 pull-right" href="single-post.html">Read More</a>
                             </div>
                         </li>
                         <li class="col-md-4 portfolio-item da-item wow fadeInUp" data-mh="blog-posts">
@@ -606,7 +655,6 @@
                                     <li><p class="text-muted"><i class="pe-7s-user"></i> <a href="#" title="">Richard Blake</a></p></li>
                                 </ul> 
                                 <p class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente</p>
-                                <a class="btn btn-primary mt20 pull-right" href="single-post.html">Read More</a>
                             </div>
                         </li>
                         <li class="col-md-4 portfolio-item da-item wow fadeInUp" data-mh="blog-posts">
@@ -626,7 +674,6 @@
                                     <li><p class="text-muted"><i class="pe-7s-user"></i> <a href="#" title="">Richard Blake</a></p></li>
                                 </ul> 
                                 <p class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente</p>
-                                <a class="btn btn-primary mt20 pull-right" href="single-post.html">Read More</a>
                             </div>
                         </li>
                         <li class="col-md-4 portfolio-item da-item wow fadeInUp" data-mh="blog-posts">
@@ -646,7 +693,6 @@
                                     <li><p class="text-muted"><i class="pe-7s-user"></i> <a href="#" title="">Richard Blake</a></p></li>
                                 </ul> 
                                 <p class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente</p>
-                                <a class="btn btn-primary mt20 pull-right" href="single-post.html">Read More</a>
                             </div>
                         </li>
                         <li class="col-md-4 portfolio-item da-item wow fadeInUp" data-mh="blog-posts">
@@ -666,7 +712,6 @@
                                     <li><p class="text-muted"><i class="pe-7s-user"></i> <a href="#" title="">Richard Blake</a></p></li>
                                 </ul> 
                                 <p class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente</p>
-                                <a class="btn btn-primary mt20 pull-right" href="single-post.html">Read More</a>
                             </div>
                         </li>
                     <li class="col-md-4 portfolio-item da-item wow fadeInUp" data-mh="blog-posts">
@@ -686,7 +731,6 @@
                                     <li><p class="text-muted"><i class="pe-7s-user"></i> <a href="#" title="">Richard Blake</a></p></li>
                                 </ul> 
                                 <p class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente</p>
-                                <a class="btn btn-primary mt20 pull-right" href="single-post.html">Read More</a>
                             </div>
                         </li>
                        <li class="col-md-4 portfolio-item da-item wow fadeInUp" data-mh="blog-posts">
@@ -706,7 +750,6 @@
                                     <li><p class="text-muted"><i class="pe-7s-user"></i> <a href="#" title="">Richard Blake</a></p></li>
                                 </ul> 
                                 <p class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente</p>
-                                <a class="btn btn-primary mt20 pull-right" href="single-post.html">Read More</a>
                             </div>
                         </li>
                        <li class="col-md-4 portfolio-item da-item wow fadeInUp" data-mh="blog-posts">
@@ -725,8 +768,7 @@
                                     <li><p class="text-muted"><i class="pe-7s-clock"></i> <a href="#" title="">10/12/2014</a></p></li>
                                     <li><p class="text-muted"><i class="pe-7s-user"></i> <a href="#" title="">Richard Blake</a></p></li>
                                 </ul> 
-                                <p class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente</p>   
-                                <a class="btn btn-primary mt20 pull-right" href="single-post.html">Read More</a>                     
+                                <p class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente</p>                        
                             </div>
                         </li>
                     </ul>
@@ -734,43 +776,6 @@
             </div>
         </div>
     </section>
-
-    <section id="testimonies" class="divider-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg2.jpg" data-speed="0.7">
-        <div class="section-inner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center wow fadeInDown">
-                        <h2 class="section-heading"><strong>Client</strong> Testimonies</h2>
-                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-10 col-xs-offset-1">
-                    <ul class="direction-aware owl-carousel wow fadeInUp" data-items="1" data-items-tablet="[768,1]"  data-items-mobile="[479,1]">
-                        <li>
-                            <div class="col-xs-2">
-                                <img src="assets/img/team/team1.jpg" class="img-responsive" alt="">
-                            </div>
-                            <div class="col-xs-10 item-caption">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente</p>
-                                <span><strong>Edward Frankfurt</strong></span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="col-xs-2">
-                                <img src="assets/img/team/team2.jpg" class="img-responsive" alt="">
-                            </div>
-                            <div class="col-xs-10 item-caption">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente</p>
-                                <span><strong>Charles Davies</strong></span>
-                            </div>
-                        </li>
-                    </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>    
 
     <!-- News Section -->
     <section id="news-carousel-section">
@@ -785,8 +790,8 @@
                 <div class="row">
                     <ul class="direction-aware owl-carousel wow fadeInUp" data-items="3" data-items-tablet="[768,2]"  data-items-mobile="[479,1]">
                         <li class="portfolio-item da-item">
-                            <a href="#" title="View Image">
-                                <img src="assets/img/blog/blog1.jpg" class="img-responsive" alt="">
+                            <a class="lb-link" href="http://unsplash.it/800/600?random=5" title="View Image">
+                                <img src="http://unsplash.it/800/600?random=6" class="img-responsive" alt="">
                                 <div>
                                     <div class="portfolio-hover-content">
                                         <i class="pe-7s-close fa-3x"></i>
@@ -804,8 +809,8 @@
                             </div>
                         </li>
                          <li class="portfolio-item da-item">
-                            <a href="#" title="View Image">
-                                <img src="assets/img/blog/blog2.jpg" class="img-responsive" alt="">
+                            <a class="lb-link" href="http://unsplash.it/800/600?random=5" title="View Image">
+                                <img src="http://unsplash.it/800/600?random=5" class="img-responsive" alt="">
                                 <div>
                                     <div class="portfolio-hover-content">
                                         <i class="pe-7s-close fa-3x"></i>
@@ -823,8 +828,8 @@
                             </div>
                         </li>
                         <li class="portfolio-item da-item">
-                            <a href="#" title="View Image">
-                                <img src="assets/img/blog/blog3.jpg" class="img-responsive" alt="">
+                            <a class="lb-link" href="http://unsplash.it/800/600?random=5" title="View Image">
+                                <img src="http://unsplash.it/800/600?random=4" class="img-responsive" alt="">
                                 <div>
                                     <div class="portfolio-hover-content">
                                         <i class="pe-7s-close fa-3x"></i>
@@ -842,8 +847,8 @@
                             </div>
                         </li>
                         <li class="portfolio-item da-item">
-                            <a href="#" title="View Image">
-                                <img src="assets/img/blog/blog4.jpg" class="img-responsive" alt="">
+                            <a class="lb-link" href="http://unsplash.it/800/600?random=5" title="View Image">
+                                <img src="http://unsplash.it/800/600?random=6" class="img-responsive" alt="">
                                 <div>
                                     <div class="portfolio-hover-content">
                                         <i class="pe-7s-close fa-3x"></i>
@@ -861,8 +866,8 @@
                             </div>
                         </li>
                          <li class="portfolio-item da-item">
-                            <a href="#" title="View Image">
-                                <img src="assets/img/blog/blog5.jpg" class="img-responsive" alt="">
+                            <a class="lb-link" href="http://unsplash.it/800/600?random=5" title="View Image">
+                                <img src="http://unsplash.it/800/600?random=5" class="img-responsive" alt="">
                                 <div>
                                     <div class="portfolio-hover-content">
                                         <i class="pe-7s-close fa-3x"></i>
@@ -880,8 +885,8 @@
                             </div>
                         </li>
                         <li class="portfolio-item da-item">
-                            <a href="#" title="View Image">
-                                <img src="assets/img/blog/blog6.jpg" class="img-responsive" alt="">
+                            <a class="lb-link" href="http://unsplash.it/800/600?random=5" title="View Image">
+                                <img src="http://unsplash.it/800/600?random=4" class="img-responsive" alt="">
                                 <div>
                                     <div class="portfolio-hover-content">
                                         <i class="pe-7s-close fa-3x"></i>
@@ -907,7 +912,7 @@
     <section id="mapwrapper">
     </section>
 
-    <section id="contact">
+    <section id="contact-us">
         <div class="section-inner">
             <div class="container">
                 <div class="row">
@@ -935,6 +940,8 @@
             </div>
         </div>
     </section>
+
+
 
     <section id="footer-widgets" class="divider-wrapper">
         <div class="section-inner">
@@ -1068,13 +1075,10 @@
     <footer class="divider-wrapper-dark">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <span class="copyright wow fadeInUp">Designed by Distinctive Themes</span>
                 </div>
-                <div class="col-md-4 text-center">
-                    <a href="#" id="back-to-top"><i class="pe-7s-angle-up fa-4x"></i></a>
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <ul class="list-inline social-buttons wow fadeInUp">
                         <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
                         </li>
